@@ -77,19 +77,19 @@ class Masker:
         - `labels`: it contains `-1` at the positions where we do NOT have to predict any token, and the ground truth
         token at the positions where we do have to predict the token. The padding positions are also -1. These
         positions/tokens to be predicted are the ones to be predicted in the language model loss, the pointing loss and
-        the episodic pointing loss. For the episodic and the pointing loss, they will not be computed for a masked word
+        the input pointing loss. For the episodic and the pointing loss, they will not be computed for a masked word
         if the masked word cannot be found previously in the other sequences. When the tokens to be predicted (and thus
         masked) have to be exactly (and only) the ones in `target_token_ids`, we take care of it when creating the
         `no_mask_locs`. Otherwise there may be some other random words in the target sentence that are also masked.
         - `inputs`: input tokens, where the positions that in `labels` are not -1, now contain either the token
-        \[MASK\], or with less probability the original token or some random token. Important: this text, as the one in
-        `data["text_tokens"]` still does NOT contain the \[SEP\] token. Just the 0 (\[PAD\]) padding to make the batch
+        [MASK], or with less probability the original token or some random token. Important: this text, as the one in
+        `data["text_tokens"]` still does NOT contain the [SEP] token. Just the 0 ([PAD]) padding to make the batch
         collate possible.
         - `input_pointing_labels`: for each element in the batch, they contain a list of length equal to the masked
-        tokens, where masked are all the tokens in `target_token_ids`, that may have been replaced by \[MASK\] or not.
+        tokens, where masked are all the tokens in `target_token_ids`, that may have been replaced by [MASK] or not.
         This is, the tokens to be predicted. Each element of the list is another list with the positions where that
         token (the ground truth, before masking) appears previously in the sentence. This is, where we have to point to.
-        These positions are indexed according to the position in `text` (this is, without any \[SEP\]) BUT AFTER
+        These positions are indexed according to the position in `text` (this is, without any [SEP]) BUT AFTER
         REMOVING the target sequence.
         """
         labels = inputs.clone()
@@ -336,13 +336,13 @@ def attn_mask_pointing(imgs_len, text_len, seq_types, num_seqs, attn_masking):
     - full_target_query: sequences can attend within themselves (and cross-modality), and target attends everywhere
     - full_target_query_key: same as full_target_query, but now all sequences can also attend to the target
     At the output: The format of the three outputs corresponds to the format of the input of the encoder. It has length
-    K. The first token is "\[IMG\]", that signals the start of the images. Then there are the images for the first
-    sequence. Then another token ("\[SEP\]") that signals the beginning of the images for the second sequence. Then the
+    K. The first token is "[IMG]", that signals the start of the images. Then there are the images for the first
+    sequence. Then another token ("[SEP]") that signals the beginning of the images for the second sequence. Then the
     images for the second sequence, and so on. These images do NOT have padding. When the S sequences of images finish,
-    there is the token "\[TXT\]" representing the beginning of the text tokens. Between the last image and the "\[TXT\]"
-    token there is a "\[SEP]" token. Then there is the text of the first sequence, then another "\[SEP\]",
-    then the text of the second sequence and so on, until the end. Then the rest until K is padding ("\[PAD\]" token).
-    Between the last text token and the first "\[PAD\]" token there is a "\[TXT\]" token too
+    there is the token "[TXT]" representing the beginning of the text tokens. Between the last image and the "[TXT]"
+    token there is a "[SEP]" token. Then there is the text of the first sequence, then another "[SEP]",
+    then the text of the second sequence and so on, until the end. Then the rest until K is padding ("[PAD]" token).
+    Between the last text token and the first "[PAD]" token there is a "[TXT]" token too
     - img_locs: len K, True where there are text token embeddings.
     - txt_locs: len K, True where there are image features.
     - attn_mask: tensor(K x K) containing the product of query and key where we limit the attention. Depends on

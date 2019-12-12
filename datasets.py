@@ -228,7 +228,7 @@ class EpicKitchensMultiple(EpicKitchens):
     - `num_tgt_toks`: integer representing M,
     - `tok_groups`: List of length L where L is the number of words to be predicted. For each word, `tok_group` contains
     the number of tokens that represent that word. The sum of all the values in `tok_groups` is M. These tokens are in
-    order in `target_token_ids`, so if `tok_groups` is \[2, 3\], it means that `target_token_ids` has 5 elements, the
+    order in `target_token_ids`, so if `tok_groups` is [2, 3], it means that `target_token_ids` has 5 elements, the
     first 2 represent one word, and the last 3 another word. `tok_groups` is only used in testing, when
     self.test_masking_policy is specified and not `random`. During training it is [].
     - `tok_group_labels`: List of length L, where each element contains a string mentioning the part of speech of the

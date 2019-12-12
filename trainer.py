@@ -79,7 +79,7 @@ class Trainer:
         True if the token at that position MUST be masked. This will depend on the `target_token_ids` and whether or not
         the token at position belongs to the target sequence. This masking means that the specific token will be
         predicted (true?) in all the text losses (language model, pointing, episodic), but will not necessarily be
-        substituted by a \[MASK\] token, as this is random and sometimes it stays the same or is substuted by a random
+        substituted by a [MASK] token, as this is random and sometimes it stays the same or is substuted by a random
         word.
         - text_no_mask_locs:
         Tensor of size B x T, each element containing a boolean tensor that contains True if in that position the token
