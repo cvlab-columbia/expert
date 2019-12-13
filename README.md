@@ -19,6 +19,8 @@ An example of command line execution can be found in `scripts/run.sh`
 
 Run `python main.py --help` for information on arguments.
 
+Be sure to have the external libraries in _requirements.txt_ installed.
+
 
 ## Data
 We work with the [Epic Kitchens dataset](https://epic-kitchens.github.io/2019) for this project. To run our code, you 
