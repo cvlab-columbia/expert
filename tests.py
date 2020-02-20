@@ -67,7 +67,6 @@ def test_accuracy(trainer, masking_policy):
     # Switch to eval mode
     trainer.model.eval()
 
-    counter_masking = utils.AverageMeter()
     with torch.no_grad(), tqdm(trainer.test_loader, desc=f'Testing {masking_policy}',
                                disable=trainer.args.local_rank > 0) as t:
         for batch_idx, data in enumerate(t):
@@ -100,7 +99,7 @@ def test_accuracy(trainer, masking_policy):
                     }
                 text, lm_labels, input_pointing_labels, tok_groups, tok_group_labels = \
                     trainer.masker.mask_text(data['text'].cuda(), input_pointing=trainer.args.input_pointing,
-                                             **mask_kwargs, **data)
+                                             prob_mask=1, **mask_kwargs, **data)
 
             img_bboxes = data['img_bboxes'].cuda()
             imgs_len = data['imgs_len'].cuda()
@@ -111,7 +110,7 @@ def test_accuracy(trainer, masking_policy):
             if trainer.args.pointing:
                 attn_mask, img_locs, txt_locs = masker.attn_mask_pointing(imgs_len, text_len, data['seq_type'],
                                                                           data['num_seqs'].cuda(),
-                                                                          trainer.args.attn_masking, counter_masking)
+                                                                          trainer.args.attn_masking)
 
             else:
                 img_attn_mask = \
@@ -156,5 +155,3 @@ def test_accuracy(trainer, masking_policy):
               f'{utils.gather_score(v.count, 1) * trainer.args.n_gpu} examples'
         if trainer.args.local_rank <= 0:
             print(out, flush=True)
-
-    print(f'Mean number of masked squares: {counter_masking.avg}', flush=True)
