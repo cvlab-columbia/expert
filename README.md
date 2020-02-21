@@ -51,7 +51,7 @@ The pretrained models reported in our paper can be found in the following links:
 - [Model with target-to-reference attention](https://expert.cs.columbia.edu/models/tgt_to_ref_attn.tar.gz)
 - [Model with via-vision attention](https://expert.cs.columbia.edu/models/via_vision_attn.tar.gz)
 - [Model with via-vision attention and input pointing](https://expert.cs.columbia.edu/models/via_vision_attn_input_pointing.tar.gz)
-- [Model with full attention](https://expert.cs.columbia.edu/models/full_attention.tar.gz)
+- [Model with full attention](https://expert.cs.columbia.edu/models/full_attn.tar.gz)
 
 Each one of these is a _.tar.gz_ file containing the files necessary to load the model (_checkpoint_best.pth_, 
 _config.json_ and _tokenizer.pth_). 
