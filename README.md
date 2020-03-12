@@ -15,7 +15,7 @@ If you use the code, please cite the paper as:
 }
 ```
 
-An example of command line execution can be found in `scripts/run.sh`
+An example of command line execution can be found in `scripts/run.sh`. To reproduce the numbers from the paper, please use the released pretrained models, and the `scripts/test_*.sh` scripts.
 
 Run `python main.py --help` for information on arguments.
 
