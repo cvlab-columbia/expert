@@ -1,6 +1,6 @@
-# EXPERT - Learning to Learn Words from Narrated Video
+# EXPERT - Learning to Learn Words from Visual Scenes
 
-Code from the paper [Learning to Learn Words from Narrated Video](https://arxiv.org/pdf/1911.11237.pdf)
+Code from the paper [Learning to Learn Words from Visual Scenes](https://arxiv.org/pdf/1911.11237.pdf)
 
 Website of the project in [expert.cs.columbia.edu](https://expert.cs.columbia.edu)
 
@@ -8,7 +8,7 @@ If you use the code, please cite the paper as:
 
 ```
 @article{suris2019learning,
-  title={Learning to learn words from narrated video},
+  title={Learning to learn words from visual scenes},
   author={Surís, Dídac and Epstein, Dave and Ji, Heng and Chang, Shih-Fu and Vondrick, Carl},
   journal={arXiv preprint arXiv:1911.11237},
   year={2019}
