@@ -7,11 +7,11 @@ Website of the project in [expert.cs.columbia.edu](https://expert.cs.columbia.ed
 If you use the code, please cite the paper as:
 
 ```
-@article{suris2019learning,
-  title={Learning to learn words from visual scenes},
-  author={Surís, Dídac and Epstein, Dave and Ji, Heng and Chang, Shih-Fu and Vondrick, Carl},
-  journal={arXiv preprint arXiv:1911.11237},
-  year={2019}
+@Article{Suris2020learning,
+  author = {D. Surís and D. Epstein and H. Ji and S. Chang and C. Vondrick},
+  title = {Learning to Learn Words from Visual Scenes},
+  journal = {European Conference on Computer Vision (ECCV)},
+  year = {2020}
 }
 ```
 
