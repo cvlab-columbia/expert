@@ -1,7 +1,7 @@
 apex==0.1
 ipdb==0.12.2
 numpy==1.17.0
-Pillow==8.1.1
+Pillow==9.0.0
 pytorch-transformers==1.2.0
 torch==1.2.0
 torchvision==0.4.0
